@@ -1,9 +1,10 @@
 #include <iostream>
+#include <cstdio>
 using namespace std;
 #include <vector>
 int n, m;
 
-void finding(vector<int> &v)
+void finding(vector<int> &v,int start)
 {
     if (v.size() == m)
     {
@@ -14,20 +15,10 @@ void finding(vector<int> &v)
         printf("\n");
         return;
     }
-    if (v.size() == 0)
-    {
-        for (int i = 1; i <= n; i++)
-        {
-            v.push_back(i);
-            finding(v);
-            v.pop_back();
-        }
-        return;
-    }
-    for (int i = v.back()+1; i <= n; i++)
+    for (int i = start; i <= n; i++)
     {
         v.push_back(i);
-        finding(v);
+        finding(v,i+1);
         v.pop_back();
     }
 }
@@ -36,6 +27,6 @@ int main()
 {
     scanf("%d %d", &n, &m);
     vector<int> v;
-    finding(v);
+    finding(v,1);
     return 0;
 }
