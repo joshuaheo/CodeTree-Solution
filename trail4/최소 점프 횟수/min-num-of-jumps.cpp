@@ -17,7 +17,7 @@ void finding(vector<pair<int, int>> &v, int location)
         }
         if (v[location - i].first >= i)
         {
-            if(v[location-i].second<=v[location].second)
+            if(v[location-i].second<=v[location].second+1)
             {
                 continue;
             }
